@@ -58,10 +58,7 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.4-impl \
-    android.hardware.camera.provider@2.4-service_64 \
-
-$(call soong_config_set,camera,override_format_from_reserved,true)
+    android.hardware.camera.provider-service.lineage
 
 # DebugFS
 PRODUCT_SET_DEBUGFS_RESTRICTIONS := true
