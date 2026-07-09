@@ -1,8 +1,9 @@
 # All unpinned blobs below are extracted from V14.0.4.0.SJWMIXM (CURTANAGlobal)
 # curtana: V14.0.4.0.SJWMIXM (CURTANAGlobal)
 # excalibur: V14.0.2.0.SJXINXM (EXCALIBURINGlobal)
-# mojito: V14.0.9.0.SKGMIXM (MOJITOGlobal)
 # sunstone: OS1.0.9.0.UMQMIXM (SUNSTONEGlobal)
+# joyeuse: V14.0.3.0.SJZMIXM (JOYEUSEGlobal)
+# nabu: V816.0.6.0.TKXMIXM (NABUGlobal)
 # vayu: V14.0.3.0.TJUMIXM (VAYUGlobal)
 
 # ACDB
@@ -582,7 +583,6 @@ vendor/lib64/liblocationservice.so
 vendor/lib64/liblocationservice_glue.so
 vendor/lib64/liblowi_client.so
 vendor/lib64/liblowi_wifihal.so
-vendor/lib64/libmmosal.so;MODULE_SUFFIX=_vendor
 vendor/lib64/libqcc_file_agent.so
 vendor/lib64/libsynergy_loc_api.so
 vendor/lib64/libxtadapter.so
@@ -696,12 +696,18 @@ vendor/lib/libgcs.so
 vendor/lib/liblistensoundmodel2.so
 vendor/lib/libmulawdec.so
 
-# Media (Codec2) - from mojito
-vendor/bin/hw/vendor.qti.media.c2@1.0-service|83c2effb6f76cb095bae840d95a2026014d92fe9
+# Media - from nabu
+system_ext/lib64/libmmosal.so|d46f10b470ecd829c6f2a424566f1cbbc6ebe234
+system_ext/lib64/libmmparser_lite.so|afd7b441e1bce732c14f5f8f49821d43bb2ee791
+vendor/lib/libmmosal.so;MODULE_SUFFIX=_vendor|bc3378f26f668c3060174a6abc8e7a640dd9730d
+vendor/lib64/libmmosal.so;MODULE_SUFFIX=_vendor|85745ad4fc147830e595fce1985b2079566888da
+
+# Media (Codec2) - from nabu
+vendor/bin/hw/vendor.qti.media.c2@1.0-service|434bd2feb1846a7e02441be2213bac8d2e22c3f7
 vendor/etc/init/vendor.qti.media.c2@1.0-service.rc|11209316ba8aae64b689217bc13b0804f6620678
 vendor/etc/seccomp_policy/codec2.vendor.base.policy|05b0779b5da2ea640984d46a46a796edeaab5fab
 vendor/etc/seccomp_policy/codec2.vendor.ext.policy|6a9a9eb3261048f02805261568097410e1a23b2d
-vendor/lib/libqcodec2.so|01b1f94e7d17c5616635141ff7bc5e3f304b48f0
+vendor/lib/libqcodec2.so|18d50108355f56521b14a5d04c72d64b3d92d2a3
 
 # Neural Networks
 vendor/bin/hw/android.hardware.neuralnetworks@1.3-service-qti
@@ -1035,8 +1041,6 @@ system_ext/etc/init/wfdservice.rc|907def8565d8f91f531ca7dfad880af05d540b0c|3dfd2
 system_ext/etc/permissions/wfd-system-ext-privapp-permissions-qti.xml|10dcd4e58f0652d800d48ae5b76e4fab43fda214
 system_ext/etc/seccomp_policy/wfdservice64.policy|1e331272649395423b11c575892e0bdc9433b820
 system_ext/etc/wfdconfigsink.xml|cb78df66948314a75080a4161321fb3111a0785a
-system_ext/lib64/libmmosal.so|a1a2875522a7b4daf346bf26c66bcbc793c8810b
-system_ext/lib64/libmmparser_lite.so|afd7b441e1bce732c14f5f8f49821d43bb2ee791
 system_ext/lib64/libmmrtpdecoder.so|0da526d51135ea58236ab6bcc2d1b7484931df24
 system_ext/lib64/libmmrtpencoder.so|fafe00d1ed3d691c6d2c2d963144218764cad5ae
 system_ext/lib64/libwfdavenhancements.so|9c763b45dd5fe7c52fad420a21d215b31c5e34d5
@@ -1072,7 +1076,6 @@ vendor/etc/seccomp_policy/wifidisplayhalservice.policy
 vendor/etc/wfdconfig.xml
 vendor/lib/libFileMux_proprietary.so
 vendor/lib/libmm-hdcpmgr.so
-vendor/lib/libmmosal.so;MODULE_SUFFIX=_vendor
 vendor/lib/libmmrtpdecoder_proprietary.so
 vendor/lib/libmmrtpencoder_proprietary.so
 vendor/lib/libwfdcodecv4l2_proprietary.so
