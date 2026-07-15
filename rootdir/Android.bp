@@ -62,3 +62,10 @@ prebuilt_etc {
     src: "etc/ueventd.qcom.rc",
     vendor: true,
 }
+prebuilt_etc {
+    name: "init.device.rc",
+    src: "etc/init.device.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+

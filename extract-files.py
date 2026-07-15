@@ -11,14 +11,13 @@ from extract_utils.fixups_blob import (
 from extract_utils.fixups_lib import (
     lib_fixups,
     lib_fixups_user_type,
-)
-from extract_utils.main import (
+)from extract_utils.main import (
     ExtractUtils,
     ExtractUtilsModule,
 )
 
 namespace_imports = [
-    'device/xiaomi/sm6250-common',
+    'device/xiaomi/miatoll',
     'hardware/qcom-caf/sm8150',
     'hardware/qcom-caf/wlan',
     'hardware/xiaomi',
@@ -87,7 +86,7 @@ blob_fixups: blob_fixups_user_type = {
 }  # fmt: skip
 
 module = ExtractUtilsModule(
-    'sm6250-common',
+    'miatoll',
     'xiaomi',
     blob_fixups=blob_fixups,
     lib_fixups=lib_fixups,
@@ -95,5 +94,6 @@ module = ExtractUtilsModule(
 )
 
 if __name__ == '__main__':
-    utils = ExtractUtils.device(module)
+    utils = ExtractUtils.device_with_common(module, 'miatoll', module.vendor)
     utils.run()
+
