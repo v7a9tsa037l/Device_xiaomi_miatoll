@@ -3,6 +3,13 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# Pixel Launcher
+INCLUDE_PIXEL_LAUNCHER := true
+
+# Platfrom
+PRODUCT_USES_QCOM_HARDWARE := true
+PRODUCT_BOARD_PLATFORM := atoll
+
 # Enable project quotas and casefolding for emulated storage without sdcardfs
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
@@ -11,6 +18,10 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
 # Add common definitions for Qualcomm
 $(call inherit-product, hardware/qcom-caf/common/common.mk)
+
+LOCAL_KERNEL := device/xiaomi/miatoll-kernel/Image
+PRODUCT_COPY_FILES += \
+	$(LOCAL_KERNEL):kernel
 
 # AAPT
 PRODUCT_AAPT_CONFIG := normal
@@ -294,7 +305,11 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/pixel \
     hardware/lineage/interfaces/power-libperfmgr \
     hardware/qcom-caf/common/libqti-perfd-client \
-    hardware/xiaomi
+    vendor/hardware/xiaomi \
+    hardware/qcom/wlan \
+    hardware/qcom-caf/sm8150/display \
+    vendor/qcom/opensource/display
+
 
 # Telephony
 PRODUCT_PACKAGES += \
