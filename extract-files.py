@@ -21,11 +21,12 @@ namespace_imports = [
     'device/xiaomi/miatoll',
     'hardware/qcom-caf/sm8150',
     'hardware/qcom-caf/wlan',
-    'hardware/xiaomi',
+    'vendor/hardware/xiaomi',
     'vendor/qcom/opensource/commonsys-intf/display',
     'vendor/qcom/opensource/commonsys/display',
     'vendor/qcom/opensource/dataservices',
     'vendor/qcom/opensource/display',
+    'hardware/qcom-caf/sm8150/display',
 ]
 
 

@@ -21,11 +21,12 @@ cc_library_shared {
         "hardware/qcom-caf/sm8150/audio/hal/msm8974",
         "system/media/audio_route/include",
         "system/media/audio_utils/include",
+	"hardware/qcom-caf/kernel-headers/msm-4.14",
     ],
 
     header_libs: [
         "libhardware_headers",
-        "qti_kernel_headers",
+        "device_kernel_headers",
     ],
 
     shared_libs: [
