@@ -11,3 +11,4 @@ type sysfs_touchpanel, fs_type, sysfs_type;
 # Torch control
 type sysfs_torch, fs_type, sysfs_type;
 
+type vendor_sysfs_fps_attr, fs_type, sysfs_type;
