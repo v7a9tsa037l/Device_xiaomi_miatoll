@@ -773,15 +773,6 @@ on property:vendor.opengles.version=*
 on property:vendor.gpu.available_frequencies=*
     setprop ro.vendor.gpu.available_frequencies ${vendor.gpu.available_frequencies}
 
-service vendor.hwcomposer-2-4 /vendor/bin/hw/android.hardware.graphics.composer@2.4-service
-    override
-    class hal animation
-    user system
-    group graphics drmrpc
-    capabilities SYS_NICE
-    onrestart restart surfaceflinger
-    task_profiles ServiceCapacityLow
-    socket pps stream 0660 system system
 
 service vendor.configstore-hal /vendor/bin/hw/android.hardware.configstore@1.1-service
     override
