@@ -782,3 +782,11 @@ service vendor.hwcomposer-2-4 /vendor/bin/hw/android.hardware.graphics.composer@
     onrestart restart surfaceflinger
     task_profiles ServiceCapacityLow
     socket pps stream 0660 system system
+
+service vendor.configstore-hal /vendor/bin/hw/android.hardware.configstore@1.1-service
+    override
+    class hal animation
+    user system
+    group system
+    disabled
+

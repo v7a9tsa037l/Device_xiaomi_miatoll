@@ -6,6 +6,16 @@
         <fqname>@6.0::IDevicesFactory/default</fqname>
     </hal>
     <hal format="hidl">
+        <name>android.hardware.graphics.composer</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.4::IComposer/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.graphics.mapper</name>
+        <transport>hwbinder</transport>
+        <fqname>@4.0::IMapper/default</fqname>
+    </hal>
+    <hal format="hidl">
         <name>android.hardware.audio.effect</name>
         <transport>hwbinder</transport>
         <fqname>@6.0::IEffectsFactory/default</fqname>
