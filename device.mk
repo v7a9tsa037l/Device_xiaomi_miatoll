@@ -71,7 +71,7 @@ PRODUCT_COPY_FILES += \
 TARGET_BUILD_DEVICE_AS_WEBCAM := true
 
 PRODUCT_PACKAGES += \
-    android.hardware.camera.provider-service.lineage
+    android.hardware.camera.provider@2.4-service_64
 
 $(call soong_config_set,libcameraservice,ext_lib,//$(LOCAL_PATH):libcameraservice_extension.miatoll)
 
@@ -374,3 +374,9 @@ PRODUCT_PACKAGES += \
 
 # Inherit proprietary targets
 $(call inherit-product, vendor/xiaomi/miatoll/miatoll-vendor.mk)
+
+PRODUCT_PACKAGES += \
+    camera.device@3.4-impl \
+    camera.device@3.5-impl \
+    camera.device@3.4-external-impl \
+    camera.device@3.5-external-impl
