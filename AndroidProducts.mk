@@ -4,4 +4,5 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/bliss_miatoll.mk
+    $(LOCAL_DIR)/statix_miatoll.mk
+

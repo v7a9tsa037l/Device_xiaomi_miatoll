@@ -1,0 +1,2 @@
+type vendor_lineage_health_service, service_manager_type;
+allow hal_lineage_health_default vendor_lineage_health_service:service_manager add;

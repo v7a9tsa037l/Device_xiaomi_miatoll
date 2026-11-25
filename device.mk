@@ -3,6 +3,13 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# Pixel Launcher
+INCLUDE_PIXEL_LAUNCHER := true
+
+# Platfrom
+PRODUCT_USES_QCOM_HARDWARE := true
+PRODUCT_BOARD_PLATFORM := atoll
+
 # Enable project quotas and casefolding for emulated storage without sdcardfs
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
@@ -11,6 +18,10 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
 # Add common definitions for Qualcomm
 $(call inherit-product, hardware/qcom-caf/common/common.mk)
+
+LOCAL_KERNEL := device/xiaomi/miatoll-kernel/Image
+PRODUCT_COPY_FILES += \
+	$(LOCAL_KERNEL):kernel
 
 # AAPT
 PRODUCT_AAPT_CONFIG := normal
@@ -59,12 +70,10 @@ PRODUCT_COPY_FILES += \
 # Camera
 TARGET_BUILD_DEVICE_AS_WEBCAM := true
 
-
 PRODUCT_PACKAGES += \
-    android.hardware.camera.provider-service.lineage
+    android.hardware.camera.provider@2.4-service_64
 
 $(call soong_config_set,libcameraservice,ext_lib,//$(LOCAL_PATH):libcameraservice_extension.miatoll)
-$(call soong_config_set_bool,camera,override_format_from_reserved,true)
 
 # DebugFS
 PRODUCT_SET_DEBUGFS_RESTRICTIONS := true
@@ -79,6 +88,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     gralloc.qcom \
+    libdisplaydebug \
     hwcomposer.qcom \
     vendor.qti.hardware.display.allocator-service \
     vendor.qti.hardware.memtrack-service
@@ -140,7 +150,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.lineage.health-service.default
 
-$(call soong_config_set_bool,lineage_health,charging_control_supports_bypass,false)
+$(call soong_config_set,lineage_health,charging_control_supports_bypass,false)
 
 # Lights
 PRODUCT_PACKAGES += \
@@ -150,7 +160,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay-service.sdm
 
-$(call soong_config_set_bool,livedisplay_sdm,enable_dm,false)
+$(call soong_config_set,livedisplay_sdm,enable_dm,false)
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -251,7 +261,7 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service.lineage-libperfmgr
+    android.hardware.power-service.statix-libperfmgr
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
@@ -291,11 +301,13 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     bootable/deprecated-ota \
     hardware/google/interfaces \
-    hardware/bliss/interfaces/power-libperfmgr \
     hardware/google/pixel/pixelstats \
     hardware/google/pixel/power-libperfmgr \
+    hardware/statix/interfaces/power-libperfmgr \
     hardware/qcom-caf/common/libqti-perfd-client \
-    hardware/xiaomi
+    vendor/hardware/xiaomi \
+    vendor/qcom/opensource/display \
+    hardware/qcom-caf/sm8150/display
 
 # Telephony
 PRODUCT_PACKAGES += \
@@ -363,3 +375,9 @@ PRODUCT_PACKAGES += \
 
 # Inherit proprietary targets
 $(call inherit-product, vendor/xiaomi/miatoll/miatoll-vendor.mk)
+
+PRODUCT_PACKAGES += \
+    camera.device@3.4-impl \
+    camera.device@3.5-impl \
+    camera.device@3.4-external-impl \
+    camera.device@3.5-external-impl
