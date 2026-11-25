@@ -87,7 +87,6 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@4.0-impl-qti-display
 
 PRODUCT_PACKAGES += \
-    disable_configstore \
     gralloc.qcom \
     libdisplaydebug \
     hwcomposer.qcom \
@@ -193,6 +192,7 @@ PRODUCT_PACKAGES += \
     CarrierConfigResCommon \
     SM6250DeviceAsWebcam \
     SM6250Frameworks \
+    SM6250SettingsOverlay \
     SM6250SystemUI \
     TelephonyResCommon \
     WifiOverlay
@@ -301,7 +301,8 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     bootable/deprecated-ota \
     hardware/google/interfaces \
-    hardware/google/pixel \
+    hardware/google/pixel/pixelstats \
+    hardware/google/pixel/power-libperfmgr \
     hardware/statix/interfaces/power-libperfmgr \
     hardware/qcom-caf/common/libqti-perfd-client \
     vendor/hardware/xiaomi \

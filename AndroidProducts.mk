@@ -5,3 +5,4 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/statix_miatoll.mk
+
